@@ -2,7 +2,7 @@
 Searches for RTX 3070 availability given the provided urls
 
 ## To Do:
-CD into the rtx_3070_bhphoto folder
+CD into the rtx_3070_bhphoto folder.
 ### Install packages:
 
 ```bash
