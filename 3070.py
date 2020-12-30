@@ -6,18 +6,18 @@ import time
 import os
 import json
 
-CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
-JSON_CONF_PATH = os.path.join(CURRENT_DIR, 'config.json')
+current_dir = os.path.dirname(os.path.realpath(__file__))
+json_conf_path = os.path.join(current_dir, 'config.json')
 
-json_conf_file = open(JSON_CONF_PATH, )
+json_conf_file = open(json_conf_path, )
 conf_data = json.load(json_conf_file)
 json_conf_file.close()
 
-TWILIO_SID = conf_data['twilio']['sid']
-TWILIO_AUTHTOKEN = conf_data['twilio']['authtoken']
+twilio_sid = conf_data['twilio']['sid']
+twilio_authtoken = conf_data['twilio']['authtoken']
 
 
-twilio_client = Client(TWILIO_SID, TWILIO_AUTHTOKEN)
+twilio_client = Client(twilio_sid, twilio_authtoken)
 
 url_lst = ["https://www.bhphotovideo.com/c/product/1602755-REG/asus_dualrtx30708g_geforce_rtx_3070_8g.html",
 		   "https://www.bhphotovideo.com/c/product/1600127-REG/zotac_zt_a30700h_10p_gaming_geforce_rtx_3070.html",
@@ -61,7 +61,7 @@ def get_availability_text(url):
 	return text
 
 
-def check_bhphoto(url_lst):
+def main(url_lst):
 
 	while True:
 
@@ -88,4 +88,4 @@ if __name__ == "__main__":
 	if len(reps) > 0:
 		raise Exception(f"{reps}")
 
-	check_bhphoto(url_lst)
+	main(url_lst)
