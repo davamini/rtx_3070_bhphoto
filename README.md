@@ -1,5 +1,5 @@
 # rtx_3070_bhphoto
-Searches for RTX 3070 availability given the provided urls
+Searches for RTX 3070 availability given the provided urls.
 
 ## To Do:
 CD into the rtx_3070_bhphoto folder.
