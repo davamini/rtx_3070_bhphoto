@@ -1,0 +1,8 @@
+{
+    "twilio": {
+        "sid": "...",
+        "authtoken": "...",
+        "from_number": "...",
+        "recipient_number": "..."
+    }
+}
