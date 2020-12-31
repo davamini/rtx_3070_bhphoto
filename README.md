@@ -15,7 +15,7 @@ Change the name of config_example.json to config.json.
 ### Run the program:
 
 ```bash
-python 3070.py
+python main.py
 ```
 
 
