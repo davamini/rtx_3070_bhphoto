@@ -65,20 +65,26 @@ def main(url_lst):
 
 	while True:
 
-		for url in url_lst:
-			text = get_availability_text(url)
-			
-			if text not in not_available_lst:
-				msg = f"RTX_3070 Buy at: {url}"
-				send_msg(msg)
+		try:
+
+			for url in url_lst:
+				text = get_availability_text(url)
 				
-				return
+				if text not in not_available_lst:
+					msg = f"RTX_3070 Buy at: {url}"
+					send_msg(msg)
+					
+					return
 
-			else:
-				now = datetime.datetime.now()
-				print(f"No change: {now}")
+				else:
+					now = datetime.datetime.now()
+					print(f"No change: {now}")
 
-			time.sleep(10)
+				time.sleep(10)
+
+		except rq.exceptions.ConnectionError as e:
+			print(f"Error: {e}\n\nSleeping for 60 seconds")
+			time.sleep(60)
 
 
 if __name__ == "__main__":
