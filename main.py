@@ -56,7 +56,7 @@ def get_availability_text(url):
 
 	content = rq.get(url).text
 	soup = BeautifulSoup(content, 'lxml')
-	text = soup.find("span", {"data-selenium": "stockStatus"}).text
+	text = soup.find("title").text
 
 	return text
 
@@ -68,9 +68,14 @@ def main(url_lst):
 		try:
 
 			for url in url_lst:
-				text = get_availability_text(url)
 				
-				if text not in not_available_lst:
+				text = get_availability_text(url)
+
+				if text == "Access to this page has been denied.":
+					print("Access denied")
+					return
+
+				elif text not in not_available_lst:
 					msg = f"RTX_3070 Buy at: {url}"
 					send_msg(msg)
 					
